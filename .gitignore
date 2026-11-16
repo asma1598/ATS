@@ -1,0 +1,8 @@
+# secrets - never commit your Groq key
+.env
+
+# local environment / caches
+.venv/
+__pycache__/
+*.pyc
+improved_resume.pdf

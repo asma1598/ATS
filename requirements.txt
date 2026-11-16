@@ -1,0 +1,12 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+streamlit
+# torch 2.8+ on Windows needs libomp140.dll (not installed here); 2.7.1 works on plain Windows
+torch==2.7.1
+torch-geometric
+transformers
+pypdf
+python-docx
+python-dotenv
+requests
+Groq
+reportlab
