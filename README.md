@@ -1,6 +1,21 @@
 # ATS Resume Optimizer with LLM
 
-Streamlit app that scores a resume against a job post and rewrites it with an LLM (Groq) to fit the job.
+Streamlit app for both sides of hiring:
+
+- **🏢 Employer:** upload many resumes at once (PDF / DOCX / TXT or a ZIP), score every one against the job description, set a minimum ATS score and must-have skills, and get a ranked shortlist of eligible candidates. Download the shortlist as CSV and the eligible resumes as a ZIP.
+- **👤 Candidate:** score your resume against a job post and let the LLM (Groq) redesign it for that job, then compare old vs new score and download it.
+
+## Files
+
+| File | What it is |
+|---|---|
+| `app.py` | Entry point: page navigation |
+| `views/home.py` | Home page |
+| `views/employer.py` | Employer bulk screening |
+| `views/candidate.py` | Candidate resume upgrade |
+| `ats_core.py` | Shared models, ATS scoring, Groq LLM, PDF/Word export |
+
+## How it works
 
 - **Scoring:** DistilBERT embeddings → trained GAT + projection layer (`gat_model.pth.zip`, `projection.pth.zip`) for semantic match, plus job-keyword coverage.
 - **Upgrade:** Groq LLM gives feedback, missing skills, bullet rewrites and a full tailored resume. The new resume is re-scored, and the app retries (up to 3 times) to keep the best version.
